@@ -1,7 +1,15 @@
 package futbol;
-public class Portero extends Futbolista {
+
+public class Portero extends Futbolista{
+
     public short golesRecibidos;
     public byte dorsal;
+
+    public Portero() {
+        super();
+        golesRecibidos = 5;
+        dorsal = 1;
+    }
 
     public Portero(String nombre, int edad, short golesRecibidos, byte dorsal) {
         super(nombre, edad, "Portero");
@@ -16,15 +24,11 @@ public class Portero extends Futbolista {
 
     @Override
     public String toString() {
-        return "El futbolista " + getNombre() + " tiene " + getEdad() + " y juega de " + getPosicion() + " con el dorsal " + dorsal + ". Le han marcado " + golesRecibidos + " goles.";
+        return super.toString() + " con el dorsal " +dorsal+ ". Le han marcado "+ golesRecibidos;
     }
 
     @Override
-    public int compareTo(Futbolista otroFutbolista) {
-        if (otroFutbolista instanceof Portero) {
-            Portero otroPortero = (Portero) otroFutbolista;
-            return Math.abs(this.golesRecibidos - otroPortero.golesRecibidos);
-        }
-        return super.compareTo(otroFutbolista);
+    public int compareTo(Object o) {
+        return Math.abs(golesRecibidos - ((Portero) o).golesRecibidos);
     }
 }
