@@ -1,4 +1,3 @@
-package Futbol;
 
 import java.util.Objects;
 
